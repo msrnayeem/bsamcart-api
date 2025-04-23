@@ -1,4 +1,4 @@
-Here is the full API documentation in Markdown format for your **BSam API**.
+Here is the updated **BSam API Documentation** with the addition of the **Wishlist** and **Order** routes:
 
 ---
 
@@ -186,12 +186,121 @@ Get products associated with a category.
 
 ---
 
+## 🛒 **Order Routes**
+
+### **POST** `/api/orders`
+Create a new order.
+
+**Request Body:**
+```json
+{
+  "user_id": "user_123",
+  "products": [
+    { "product_id": "p1", "quantity": 2 },
+    { "product_id": "p2", "quantity": 1 }
+  ],
+  "total_amount": 85.00,
+  "status": "pending"
+}
+```
+
+**Response:**
+- `201 Created` on success
+- `400 Bad Request` if validation fails
+
+---
+
+### **GET** `/api/orders`
+Fetch all orders.
+
+**Response:**
+```json
+[
+  {
+    "id": "order_1",
+    "user_id": "user_123",
+    "products": [
+      { "product_id": "p1", "quantity": 2 },
+      { "product_id": "p2", "quantity": 1 }
+    ],
+    "total_amount": 85.00,
+    "status": "pending"
+  }
+]
+```
+
+---
+
+### **GET** `/api/orders/:id`
+Get a specific order by ID.
+
+**Response:**
+```json
+{
+  "id": "order_1",
+  "user_id": "user_123",
+  "products": [
+    { "product_id": "p1", "quantity": 2 },
+    { "product_id": "p2", "quantity": 1 }
+  ],
+  "total_amount": 85.00,
+  "status": "pending"
+}
+```
+
+---
+
+## 💖 **Wishlist Routes**
+
+### **POST** `/api/wishlist`
+Add a product to the wishlist.
+
+**Request Body:**
+```json
+{
+  "user_id": "user_123",
+  "product_id": "p1"
+}
+```
+
+**Response:**
+- `201 Created` on success
+- `400 Bad Request` if the product is already in the wishlist
+
+---
+
+### **GET** `/api/wishlist`
+Fetch all wishlists.
+
+**Response:**
+```json
+[
+  {
+    "user_id": "user_123",
+    "products": ["p1", "p2"]
+  }
+]
+```
+
+---
+
+### **GET** `/api/wishlist/:userId`
+Get a specific user's wishlist by `userId`.
+
+**Response:**
+```json
+{
+  "user_id": "user_123",
+  "products": ["p1", "p2"]
+}
+```
+
+---
+
 ## Notes
 
 - **All routes** use **JSON** as the content type.
 - **Firestore** is used as the database.
 - **serviceAccountKey.json** is required for Firebase authentication. Ensure that it is available and correctly configured in your application.
-- The **category** and **product** data in your database should be set up correctly for queries to work as expected when querying by category ID.
+- The **category**, **product**, **order**, and **wishlist** data in your database should be set up correctly for queries to work as expected.
 - This API is built with **Express** and serves data from a **Firestore** database.
-  
----

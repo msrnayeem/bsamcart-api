@@ -13,6 +13,8 @@ admin.initializeApp({
 const usersRoutes = require('./routes/usersRoutes')
 const productsRoutes = require('./routes/productsRoutes')
 const categoriesRoutes = require('./routes/categoriesRoutes')
+const orderRoutes = require('./routes/orderRoutes')
+const wishlistRoutes = require('./routes/wishlistRoutes')
 
 app.use(express.json())
 
@@ -23,6 +25,8 @@ app.get('/', (req, res) => {
 app.use('/api/users', usersRoutes)
 app.use('/api/products', productsRoutes)
 app.use('/api/categories', categoriesRoutes)
+app.use('/api/orders', orderRoutes);
+app.use('/api/wishlist', wishlistRoutes);
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
