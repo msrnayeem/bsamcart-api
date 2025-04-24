@@ -15,6 +15,7 @@ const productsRoutes = require('./routes/productsRoutes')
 const categoriesRoutes = require('./routes/categoriesRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const wishlistRoutes = require('./routes/wishlistRoutes')
+const cartRoutes = require('./routes/cartRoutes')
 
 app.use(express.json())
 
@@ -27,6 +28,7 @@ app.use('/api/products', productsRoutes)
 app.use('/api/categories', categoriesRoutes)
 app.use('/api/orders', orderRoutes);
 app.use('/api/wishlist', wishlistRoutes);
+app.use('/api/cart', cartRoutes);
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
