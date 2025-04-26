@@ -6,7 +6,7 @@ Here is the updated **BSam API Documentation** with the addition of the **Wishli
 
 ## Base URL
 ```
-http://localhost:3000/api
+http://212.1.213.200:3000/api
 ```
 
 ---
@@ -372,7 +372,7 @@ Remove a product from the cart or decrease its quantity by one. If the quantity 
 
 **Request:**
 ```
-POST http://localhost:3000/api/cart/add
+POST http://212.1.213.200:3000/api/cart/add
 ```
 
 **Body:**
@@ -390,7 +390,7 @@ POST http://localhost:3000/api/cart/add
 
 **Request:**
 ```
-GET http://localhost:3000/api/cart/user/user_123
+GET http://212.1.213.200:3000/api/cart/user/user_123
 ```
 
 **Response:**
@@ -413,7 +413,7 @@ GET http://localhost:3000/api/cart/user/user_123
 
 **Request:**
 ```
-DELETE http://localhost:3000/api/cart/remove/user_123/p1
+DELETE http://212.1.213.200:3000/api/cart/remove/user_123/p1
 ```
 
 **Response:**
@@ -439,7 +439,7 @@ If any of the operations encounter an error, the server will return an error res
 
 
 
-url -> http://localhost
+url -> http://212.1.213.200
 
 ```markdown
 # 🍽️ **Menu Items Routes**
